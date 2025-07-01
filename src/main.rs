@@ -56,6 +56,8 @@ impl MessageSender {
         for attempt in 0..=retries {
             // Create a new Command instance
             let mut command = Command::new("meshtastic");
+                command.arg("--no-nodes");
+                command.arg("--no-time");
                 command.arg("--ch-index");
                 command.arg(chan.to_string());
                 command.arg("--sendtext");
